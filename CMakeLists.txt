@@ -86,6 +86,7 @@ set(BUILD_TARGETS
     bimg
     bx
     brtshaderc
+    imgui
 )
 
 if (NOT APPLE)
