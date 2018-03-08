@@ -64,6 +64,9 @@ add_subdirectory(base64-1.0.0)
 add_subdirectory(SDL2-2.0.7)
 add_subdirectory(bgfx-1.0.0)
 
+# imgui
+include(${PROJECT_SOURCE_DIR}/cmake/imgui.cmake)
+
 set(BUILD_TARGETS
     BulletDynamics
     LinearMath
