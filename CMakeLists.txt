@@ -68,6 +68,7 @@ add_subdirectory(bgfx-1.0.0)
 include(${PROJECT_SOURCE_DIR}/cmake/imgui.cmake)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/spark)
+add_subdirectory(efsw)
 
 set(BUILD_TARGETS
     BulletDynamics
@@ -90,6 +91,7 @@ set(BUILD_TARGETS
     brtshaderc
     imgui
     spark
+    efsw
 )
 
 if (NOT APPLE)
