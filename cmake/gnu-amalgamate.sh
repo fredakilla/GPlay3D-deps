@@ -32,7 +32,7 @@ mv *.a ./tmp
 
 # Build an MRI script file
 MRI="$CWD/deps.mri"
-echo "create libgameplay-deps.a" >$MRI
+echo "create libgplay3d-deps.a" >$MRI
 for file in ./tmp/* ; do
     if [ -e "$file" ];
     then

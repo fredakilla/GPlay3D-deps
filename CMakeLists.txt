@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(GamePlay-deps)
+project(GPlay3d-deps)
 
 IF(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND NOT ANDROID)
     SET(LINUX 1)
@@ -110,30 +110,30 @@ IF(BUILD_EXTRA_LIBS)
 ENDIF(BUILD_EXTRA_LIBS)
 
 if(WIN32)
-    set(GAMEPLAY_DEPS gameplay-deps.lib)
+    set(GLAY3D_DEPS gplay3d-deps.lib)
 else(WIN32)
-    set(GAMEPLAY_DEPS libgameplay-deps.a)
+    set(GLAY3D_DEPS libgplay3d-deps.a)
 endif(WIN32)
 
 if(LINUX OR ANDROID)
     add_custom_command(
-        OUTPUT ${GAMEPLAY_DEPS}
+        OUTPUT ${GLAY3D_DEPS}
         COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/cmake/gnu-amalgamate.sh ${CMAKE_AR} ${LIBRARY_OUTPUT_PATH}
     )
 elseif(APPLE)
     add_custom_command(
-        OUTPUT ${GAMEPLAY_DEPS}
+        OUTPUT ${GLAY3D_DEPS}
         COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/cmake/xcode-amalgamate.sh ${LIBRARY_OUTPUT_PATH}
     )
 else()
     # Windows
     add_custom_command(
-        OUTPUT ${GAMEPLAY_DEPS}
+        OUTPUT ${GLAY3D_DEPS}
 	COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/cmake/msvc-amalgamate.bat ${LIBRARY_OUTPUT_PATH}/${CMAKE_CFG_INTDIR}
     )
 endif(LINUX OR ANDROID)
 
-add_custom_target(gameplay-deps ALL DEPENDS ${GAMEPLAY_DEPS})
-add_dependencies(gameplay-deps ${BUILD_TARGETS})
+add_custom_target( gplay3d-deps ALL DEPENDS ${GLAY3D_DEPS})
+add_dependencies( gplay3d-deps ${BUILD_TARGETS})
 
-SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${LIBRARY_OUTPUT_PATH}/${GAMEPLAY_DEPS})
+SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${LIBRARY_OUTPUT_PATH}/${GLAY3D_DEPS})

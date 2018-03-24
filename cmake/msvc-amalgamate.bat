@@ -5,10 +5,10 @@ echo "Amalgamating target dir: %LIBDIR%"
 
 cd %LIBDIR%
 mkdir tmp
-del gameplay-deps.lib
+del gplay3d-deps.lib
 move *.lib tmp
 
-LIB.EXE /OUT:gameplay-deps.lib tmp\*
+LIB.EXE /OUT:gplay3d-deps.lib tmp\*
 
 rmdir /s /q "tmp\"
 cd %ROOTDIR%
