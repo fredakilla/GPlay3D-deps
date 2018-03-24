@@ -1,10 +1,10 @@
-GamePlay-deps
+GPlay3D-deps
 =============
 
-External dependencies for GamePlay 3D framework.
+External dependencies for GPlay3D framework.
 
 We are using CMake to create a single, consistent way of compiling all the
-libraries that GamePlay uses.  CMake with toolchain files are used to support
+libraries that GPlay3D uses.  CMake with toolchain files are used to support
 cross-compiling.
 
 | Host     | Target Platform             | Target Arch                            
@@ -32,7 +32,7 @@ git submodule update --init --recursive
 For the simple case (not cross-compiling):
 
 ```
-$ cd GamePlay-deps
+$ cd GPlay3D-deps
 $ mkdir build
 $ cd build
 $ cmake ..
@@ -57,12 +57,12 @@ installed because OpenAL should use the DirectSound back-end.  We also build
 both the Debug and Release variants. 
 
 ```
-> cd GamePlay-deps
+> cd GPlay3D-deps
 > mkdir build
 > cd build
 > cmake -G "Visual Studio 14 Win64" ..
-> msbuild GamePlay-deps.sln /property:Configuration=Debug
-> msbuild GamePlay-deps.sln /property:Configuration=Release
+> msbuild GPlay3D-deps.sln /property:Configuration=Debug
+> msbuild GPlay3D-deps.sln /property:Configuration=Release
 or
 > cmake --build . --target install --config Debug
 ```
@@ -81,7 +81,7 @@ Install XCode 6
 For arm architecture:
 
 ```
-$ cd GamePlay-deps
+$ cd GPlay3D-deps
 $ mkdir build
 $ cd build
 $ cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/ios.toolchain.cmake -DIOS_PLATFORM=OS ..
@@ -116,7 +116,7 @@ ANDROID_STANDALONE_TOOLCHAIN environment variable to the appropriate standalone
 toolchain directory.  We do this prior to running cmake.
 
 ```
-$ cd GamePlay-deps
+$ cd GPlay3D-deps
 $ mkdir build
 $ cd build
 $ export ANDROID_STANDALONE_TOOLCHAIN=/path/to/android-toolchain-arm
