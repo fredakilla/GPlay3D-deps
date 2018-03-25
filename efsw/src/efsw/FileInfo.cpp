@@ -1,9 +1,25 @@
 #include <efsw/FileInfo.hpp>
 #include <efsw/FileSystem.hpp>
 #include <sys/stat.h>
+
+#ifdef WIN32
+#include <io.h>
+#elif __linux__
 #include <unistd.h>
+#endif
+
 #include <limits.h>
 #include <stdlib.h>
+
+#include <sys/stat.h>
+
+#if defined(WIN32)
+	// Copied from linux libc sys/stat.h:
+	#define S_IRUSR S_IREAD
+	#define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
+	#define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
+#endif
+
 
 namespace efsw {
 

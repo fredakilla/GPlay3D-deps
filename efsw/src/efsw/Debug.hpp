@@ -20,8 +20,8 @@ void efPRINTC	( unsigned int cond, const char * format, ... );
 #define efASSERT( expr )
 #define efASSERTM( expr, msg )
 
-#define efPRINT( format, args... ) {}
-#define efPRINTC( cond, format, args... ) {}
+#define efPRINT( format, ... ) {}
+#define efPRINTC( cond, format, ... ) {}
 
 #endif
 
@@ -29,8 +29,8 @@ void efPRINTC	( unsigned int cond, const char * format, ... );
 	#define efDEBUG efPRINT
 	#define efDEBUGC efPRINTC
 #else
-	#define efDEBUG( format, args... ) {}
-	#define efDEBUGC( cond, format, args... ) {}
+	#define efDEBUG( format, ... ) {}
+	#define efDEBUGC( cond, format, ... ) {}
 #endif
 
 }
