@@ -43,17 +43,9 @@ if (NOT APPLE)
     add_subdirectory(openal-1.16.0)
 endif(NOT APPLE)
 
-if (NOT APPLE AND NOT ANDROID)
-    add_subdirectory(glew-1.10.0)
-endif (NOT APPLE AND NOT ANDROID)
-
 # zlib must be built before png and curl
 add_subdirectory(zlib-1.2.8)
 add_subdirectory(png-1.6.15)
-
-if(NOT WIN32 AND BUILD_EXTRA_LIBS)
-    add_subdirectory(curl-7.39.0)
-endif(NOT WIN32 AND BUILD_EXTRA_LIBS)
 
 # Ogg needs to be built before vorbis
 add_subdirectory(ogg-1.3.2)
@@ -95,19 +87,12 @@ set(BUILD_TARGETS
 )
 
 if (NOT APPLE)
-    list(APPEND BUILD_TARGETS GLEW)
     IF(WIN32)
         list(APPEND BUILD_TARGETS OpenAL32)
     ELSE(WIN32)
         list(APPEND BUILD_TARGETS openal)
     ENDIF(WIN32)
 endif(NOT APPLE)
-
-IF(BUILD_EXTRA_LIBS)
-    if(NOT WIN32)
-        list(APPEND BUILD_TARGETS libcurl)
-    endif(NOT WIN32)
-ENDIF(BUILD_EXTRA_LIBS)
 
 if(WIN32)
     set(GLAY3D_DEPS gplay3d-deps.lib)
