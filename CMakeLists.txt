@@ -51,7 +51,7 @@ add_subdirectory(png-1.6.15)
 add_subdirectory(ogg-1.3.2)
 add_subdirectory(vorbis-1.3.4)
 
-add_subdirectory(bullet-2.82-r2704)
+include(${PROJECT_SOURCE_DIR}/cmake/bullet.cmake)
 add_subdirectory(base64-1.0.0)
 add_subdirectory(SDL2-2.0.7)
 add_subdirectory(bgfx-1.0.0)
